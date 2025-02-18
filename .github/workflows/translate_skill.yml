@@ -1,0 +1,15 @@
+name: Translate Skill Resources
+on:
+  workflow_dispatch:
+    inputs:
+      target_lang:
+        type: string
+        description: Language to translate skill resources to
+        default: "uk-ua"
+
+jobs:
+  translate_skill:
+    uses: neongeckocom/.github/.github/workflows/skill_auto_translate.yml@FEAT_AutomateSkillTranslation
+    secrets: inherit
+    with:
+      target_lang: ${{inputs.target_lang}}
