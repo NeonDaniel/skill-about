@@ -8,6 +8,14 @@ on:
         default: "uk-ua"
 
 jobs:
+  debug_secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug envvars
+        run: |
+          echo "${env}"
+        env:
+          DEEPL_API_KEY: ${{secrets.DEEPL_API_KEY}}
   translate_skill:
     uses: neongeckocom/.github/.github/workflows/skill_auto_translate.yml@FEAT_AutomateSkillTranslation
     secrets: inherit
